@@ -18,7 +18,7 @@ class Router {
             'controller' => $controller
         ];
     }
-
+    // test
     /**
      * Add a GET route
      *
