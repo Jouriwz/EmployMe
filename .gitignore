@@ -1,0 +1,28 @@
+# Ignore Composer's vendor directory
+/vendor/
+
+# Ignore environment files
+.env
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore build files
+/build/
+/dist/
+/node_modules/
+
+/*.zip
+/*.rar
+
+# Ignore IDE specific files
+*.idea
+*.vscode

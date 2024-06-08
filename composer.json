@@ -1,0 +1,16 @@
+{
+  "name": "jouriwz/employme",
+  "description": "arrr",
+  "authors": [
+    {
+      "name": "Jouri",
+      "email": "your-email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "Framework/",
+      "App\\": "App/"
+    }
+  }
+}
