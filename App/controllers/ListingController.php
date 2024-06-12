@@ -13,30 +13,51 @@ class ListingController
         $this->db = new Database($config);
     }
 
+    /*
+     * Show all listings
+     *
+     * @return void
+     */
     public function index()
     {
         $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
 
-        loadView('home', [
+        loadView('listings/index', [
             'listings' => $listings
         ]);
 
     }
 
+    /*
+     * Show create listing form
+     *
+     * @return void
+     */
     public function create ()
     {
         loadView('listings/create');
     }
 
-    public function show ()
+    /*
+     * Show a single listing
+     *
+     * @return void
+     */
+    public function show ($params)
     {
-        $id = $_GET['id'] ?? '';
+        $id = $params['id'] ?? '';
 
         $params = [
             'id' => $id
         ];
 
         $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+        // Check if listing exists
+        if (!$listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
 
         loadView('listings/show', [
             'listing' => $listing
