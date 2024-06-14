@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class ListingController
 {
@@ -13,7 +14,7 @@ class ListingController
         $this->db = new Database($config);
     }
 
-    /*
+    /**
      * Show all listings
      *
      * @return void
@@ -25,10 +26,9 @@ class ListingController
         loadView('listings/index', [
             'listings' => $listings
         ]);
-
     }
 
-    /*
+    /**
      * Show create listing form
      *
      * @return void
@@ -38,7 +38,7 @@ class ListingController
         loadView('listings/create');
     }
 
-    /*
+    /**
      * Show a single listing
      *
      * @return void
