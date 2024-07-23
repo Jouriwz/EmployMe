@@ -204,9 +204,20 @@ class ListingController
             // Submit to database
             $updateFields = [];
 
-            foreach(array_keys($updateValues)) {
-
+            foreach(array_keys($updateValues) as $field) {
+                $updateFields[] = "{$field} = :{$field}";
             }
+
+            $updateFields = implode(', ', $updateFields);
+
+            $updateQuery = "UPDATE listings SET $updateFields WHERE id = :id";
+
+            $updateValues['id'] = $id;
+            $this->db->query($updateQuery, $updateValues);
+
+            $_SESSION['success_message'] = 'Listing Updated';
+
+            redirect('/listings/' . $id);
         }
     }
 }
