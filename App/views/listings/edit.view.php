@@ -4,7 +4,6 @@
 
 <section class="flex justify-center items-center mt-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-600 mx-6">
-        <?= loadPartial('message') ?>
         <h2 class="text-4xl text-center font-bold mb-4">Edit Job Listing</h2>
         <form method="POST" action="/listings/<?= $listing->id ?>">
             <input type="hidden" name="_method" value="PUT">
