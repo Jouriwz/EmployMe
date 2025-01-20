@@ -18,4 +18,7 @@ $router->delete('/listings/{id}', 'ListingController@destroy');
 // AUTH
 $router->get('/auth/register', 'userController@create');
 $router->get('/auth/login', 'userController@login');
+
+$router->post('/auth/register', 'UserController@store');
+$router->post('/auth/logout', 'UserController@logout');
 ?>
